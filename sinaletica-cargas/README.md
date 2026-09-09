@@ -60,10 +60,14 @@ Chega e sobra para desenho; os originais ficam contigo.
 
 ## Informação em falta (para arrancar)
 
+> A linguagem da marca já está lida a partir do estacionário — ver
+> `referencias/03-identidade-marca/IDENTIDADE-ANALISE.md`. Falta o material
+> de origem (vetores, fontes, valores de cor).
+
 **Totem**
 - [ ] Dimensões do totem antigo (altura, largura, espessura)
 - [ ] Material e tipo de fixação (chapa sobre estrutura? monobloco? chumbado?)
-- [ ] Ficheiro vetorial do logo Fenabel (`.ai` / `.svg` / `.eps`)
+- [ ] Ficheiro vetorial do logo Fenabel (`.ai` / `.svg` / `.eps`) — **bloqueio nº 1**
 - [ ] Fonte(s) do novo estilo gráfico + cores oficiais (RAL / Pantone / HEX)
 - [ ] Confirmar se a lista de destinos e o horário se mantêm iguais
 
