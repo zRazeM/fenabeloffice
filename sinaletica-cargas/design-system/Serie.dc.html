@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#F7F6F3; color:#4D4C4C;
+      font-family:"Neue Haas Grotesk Display Pro","Neue Haas Grotesk Text Pro","Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:#E42313; } a:hover { color:#b31b0f; }
+    .folha { padding:64px 64px 56px; box-sizing:border-box; height:100%;
+      display:flex; flex-direction:column; }
+    .rot { writing-mode:vertical-rl; transform:rotate(180deg);
+      letter-spacing:.34em; font-size:11px; text-transform:uppercase;
+      color:#8A8781; }
+    .tit { font-size:38px; font-weight:700; color:#2E2E2C; letter-spacing:-.02em;
+      line-height:1.05; margin:0; }
+    .sub { font-size:13px; color:#8A8781; letter-spacing:.02em; margin:10px 0 0; }
+    .rule { height:1px; background:#DAD7D0; border:0; margin:0; }
+    .lbl { font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+      color:#8A8781; }
+  </style>
+</helmet>
+
+<div class="folha" style="padding:52px 56px">
+  <div style="display:flex; gap:30px; flex-grow:1">
+    <div class="rot">Série de gates</div>
+    <div style="flex-grow:1; display:flex; flex-direction:column">
+      <div style="display:flex; justify-content:space-between; align-items:flex-end">
+        <div>
+          <h1 class="tit" style="font-size:31px">Dez placas</h1>
+          <p class="sub" style="margin-top:7px">Sem gate 1. O 3a e o 7a levam sufixo em expoente.</p>
+        </div>
+        <div class="lbl">Fundo RAL 9010 · Numeral RAL 7016</div>
+      </div>
+      <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr));
+                  gap:22px; margin-top:30px">
+        <div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">2</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 2</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">3</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 3</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">3</text><text x="780" y="219" font-size="287" font-weight="700" fill="#383E42">a</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="color:#E42313">gate 3a</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">4</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 4</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">5</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 5</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">6</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 6</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">7</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 7</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">7</text><text x="780" y="219" font-size="287" font-weight="700" fill="#383E42">a</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="color:#E42313">gate 7a</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">8</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 8</span>
+        </div><div style="display:flex; flex-direction:column; gap:8px">
+          <div style="border:1px solid #DAD7D0"><svg viewBox="0 0 1000 1000" width="196" height="196" style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif"><rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="952" font-size="1232" font-weight="700" fill="#383E42">9</text><g transform="translate(892,952) rotate(-90)"><text x="0" y="0" font-size="165" font-weight="700" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g></svg></div>
+          <span class="lbl" style="">gate 9</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

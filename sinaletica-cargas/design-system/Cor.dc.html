@@ -1,0 +1,103 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#F7F6F3; color:#4D4C4C;
+      font-family:"Neue Haas Grotesk Display Pro","Neue Haas Grotesk Text Pro","Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:#E42313; } a:hover { color:#b31b0f; }
+    .folha { padding:64px 64px 56px; box-sizing:border-box; height:100%;
+      display:flex; flex-direction:column; }
+    .rot { writing-mode:vertical-rl; transform:rotate(180deg);
+      letter-spacing:.34em; font-size:11px; text-transform:uppercase;
+      color:#8A8781; }
+    .tit { font-size:38px; font-weight:700; color:#2E2E2C; letter-spacing:-.02em;
+      line-height:1.05; margin:0; }
+    .sub { font-size:13px; color:#8A8781; letter-spacing:.02em; margin:10px 0 0; }
+    .rule { height:1px; background:#DAD7D0; border:0; margin:0; }
+    .lbl { font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+      color:#8A8781; }
+  </style>
+</helmet>
+
+<div class="folha">
+  <div style="display:flex; gap:36px; flex-grow:1">
+    <div class="rot">Cor</div>
+    <div style="flex-grow:1; display:flex; flex-direction:column">
+      <h1 class="tit">Cor</h1>
+      <p class="sub" style="max-width:46ch; line-height:1.6">
+        Dois tons fazem a sinalética. O vermelho da marca entra só como acento —
+        nunca preenche superfície, nunca faz texto.</p>
+      <div style="display:flex; gap:22px; margin-top:44px">
+        <div style="flex-grow:1; display:flex; flex-direction:column; gap:12px">
+      <div style="height:150px; background:#F1ECE1; border:1px solid #DAD7D0"></div>
+      <div style="display:flex; flex-direction:column; gap:5px">
+        <span style="font-size:15px; color:#2E2E2C; font-weight:700">RAL 9010</span>
+        <span style="font-size:12px; color:#8A8781">Fundo das placas</span>
+        <span style="font-size:12px; color:#4D4C4C; font-family:ui-monospace,Menlo,monospace">#F1ECE1</span>
+        <span style="font-size:11px; color:#8A8781; line-height:1.5; margin-top:4px">Branco puro. Substitui o marfim da placa antiga, que se camuflava na fachada.</span>
+      </div></div>
+        <div style="flex-grow:1; display:flex; flex-direction:column; gap:12px">
+      <div style="height:150px; background:#383E42; border:1px solid #DAD7D0"></div>
+      <div style="display:flex; flex-direction:column; gap:5px">
+        <span style="font-size:15px; color:#2E2E2C; font-weight:700">RAL 7016</span>
+        <span style="font-size:12px; color:#8A8781">Numeral e texto</span>
+        <span style="font-size:12px; color:#4D4C4C; font-family:ui-monospace,Menlo,monospace">#383E42</span>
+        <span style="font-size:11px; color:#8A8781; line-height:1.5; margin-top:4px">Cinza antracite. Aguenta a distância de leitura melhor que o cinza da marca.</span>
+      </div></div>
+        <div style="flex-grow:1; display:flex; flex-direction:column; gap:12px">
+      <div style="height:150px; background:#4D4C4C; border:1px solid #DAD7D0"></div>
+      <div style="display:flex; flex-direction:column; gap:5px">
+        <span style="font-size:15px; color:#2E2E2C; font-weight:700">LOGÓTIPO</span>
+        <span style="font-size:12px; color:#8A8781">Cinza da marca</span>
+        <span style="font-size:12px; color:#4D4C4C; font-family:ui-monospace,Menlo,monospace">#4D4C4C</span>
+        <span style="font-size:11px; color:#8A8781; line-height:1.5; margin-top:4px">Reservado ao logótipo e a texto secundário. Não serve para numeral.</span>
+      </div></div>
+        <div style="flex-grow:1; display:flex; flex-direction:column; gap:12px">
+      <div style="height:150px; background:#E42313; border:1px solid #DAD7D0"></div>
+      <div style="display:flex; flex-direction:column; gap:5px">
+        <span style="font-size:15px; color:#2E2E2C; font-weight:700">MARCA</span>
+        <span style="font-size:12px; color:#8A8781">Acento</span>
+        <span style="font-size:12px; color:#4D4C4C; font-family:ui-monospace,Menlo,monospace">#E42313</span>
+        <span style="font-size:11px; color:#8A8781; line-height:1.5; margin-top:4px">Setas do totem e pouco mais. Sem correspondência RAL boa — pedir Pantone.</span>
+      </div></div>
+      </div>
+      <div style="margin-top:52px">
+        <div class="lbl" style="margin-bottom:14px">Contraste sobre RAL 9010</div>
+        <hr class="rule">
+        <div style="display:flex; padding:13px 0; align-items:baseline; gap:16px">
+          <span style="flex-grow:1; font-size:14px; color:#2E2E2C">Cinza da marca #4D4C4C</span>
+          <span style="font-size:15px; font-weight:700; width:74px; text-align:right;
+            color:#2E2E2C">7,26:1</span>
+          <span style="font-size:12px; color:#8A8781; width:230px">Legível, fraco à distância</span>
+        </div><hr class="rule"><div style="display:flex; padding:13px 0; align-items:baseline; gap:16px">
+          <span style="flex-grow:1; font-size:14px; color:#2E2E2C">RAL 7016 antracite</span>
+          <span style="font-size:15px; font-weight:700; width:74px; text-align:right;
+            color:#2E2E2C">9,21:1</span>
+          <span style="font-size:12px; color:#8A8781; width:230px">Escolhido para o numeral</span>
+        </div><hr class="rule"><div style="display:flex; padding:13px 0; align-items:baseline; gap:16px">
+          <span style="flex-grow:1; font-size:14px; color:#2E2E2C">RAL 9004 preto sinal</span>
+          <span style="font-size:15px; font-weight:700; width:74px; text-align:right;
+            color:#2E2E2C">11,25:1</span>
+          <span style="font-size:12px; color:#8A8781; width:230px">Alternativa de maior presença</span>
+        </div><hr class="rule"><div style="display:flex; padding:13px 0; align-items:baseline; gap:16px">
+          <span style="flex-grow:1; font-size:14px; color:#2E2E2C">Vermelho #E42313</span>
+          <span style="font-size:15px; font-weight:700; width:74px; text-align:right;
+            color:#E42313">3,92:1</span>
+          <span style="font-size:12px; color:#8A8781; width:230px">Só elementos grandes</span>
+        </div><hr class="rule">
+        <p style="font-size:12px; color:#8A8781; line-height:1.6; margin-top:18px; max-width:60ch">
+          O mínimo recomendado para texto é 4,5:1. O vermelho fica abaixo — por isso
+          é acento e não tinta de leitura.</p>
+      </div>
+    </div>
+  </div>
+</div>
+</x-dc>
+</body>
+</html>

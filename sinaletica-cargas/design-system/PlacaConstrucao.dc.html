@@ -1,0 +1,119 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <style>
+    body { margin:0; background:#F7F6F3; color:#4D4C4C;
+      font-family:"Neue Haas Grotesk Display Pro","Neue Haas Grotesk Text Pro","Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+    a { color:#E42313; } a:hover { color:#b31b0f; }
+    .folha { padding:64px 64px 56px; box-sizing:border-box; height:100%;
+      display:flex; flex-direction:column; }
+    .rot { writing-mode:vertical-rl; transform:rotate(180deg);
+      letter-spacing:.34em; font-size:11px; text-transform:uppercase;
+      color:#8A8781; }
+    .tit { font-size:38px; font-weight:700; color:#2E2E2C; letter-spacing:-.02em;
+      line-height:1.05; margin:0; }
+    .sub { font-size:13px; color:#8A8781; letter-spacing:.02em; margin:10px 0 0; }
+    .rule { height:1px; background:#DAD7D0; border:0; margin:0; }
+    .lbl { font-size:10px; letter-spacing:.28em; text-transform:uppercase;
+      color:#8A8781; }
+  </style>
+</helmet>
+
+<div class="folha">
+  <div style="display:flex; gap:36px; flex-grow:1">
+    <div class="rot">Placa de gate · construção</div>
+    <div style="flex-grow:1; display:flex; flex-direction:column">
+      <h1 class="tit">Construção da placa</h1>
+      <p class="sub" style="max-width:52ch; line-height:1.6">
+        A fotografia da placa existente foi retificada e medida a pixel. Estas
+        proporções são as do original — o desenho novo herda-as.</p>
+
+      <div style="display:flex; gap:40px; margin-top:38px; align-items:flex-start">
+        <svg viewBox="-90 -60 1240 1180" width="620" height="590"
+             style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif; flex-shrink:0">
+          <rect width="1000" height="1000" fill="#F1ECE1" stroke="#DAD7D0"/>
+          <text x="81" y="952" font-size="1232" font-weight="700"
+                fill="#383E42">{{ num }}</text>
+          <sc-if value="{{ temLetra }}" hint-placeholder-val="{{ true }}">
+            <text x="780" y="219"
+                  font-size="287" font-weight="700" fill="#383E42">{{ letra }}</text>
+          </sc-if>
+          <g transform="translate(892,952) rotate(-90)">
+            <text x="0" y="0" font-size="165" font-weight="700"
+                  letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text>
+          </g>
+          <g stroke="#E42313" stroke-width="2" fill="none" stroke-dasharray="8 8" opacity=".85">
+            <line x1="81" y1="-40" x2="81" y2="1040"/>
+            <line x1="-60" y1="952" x2="1060" y2="952"/>
+            <line x1="-60" y1="69" x2="1060" y2="69"/>
+            <line x1="892" y1="-40" x2="892" y2="1040"/>
+          </g>
+          <g fill="#E42313" font-size="30" font-weight="700">
+            <text x="0" y="-24">8,1%</text>
+            <text x="1010" y="962">4,8%</text>
+            <text x="1010" y="79">6,9%</text>
+            <text x="796" y="1058">10,8%</text>
+            <text x="97" y="510.5" opacity=".9">88,3%</text>
+          </g>
+        </svg>
+
+        <div style="flex-grow:1; display:flex; flex-direction:column">
+          <div class="lbl" style="margin-bottom:12px">Medido no original</div>
+          <hr class="rule">
+          <div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Altura do numeral</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">88,3%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Largura do numeral</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">63,8%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Margem esquerda</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">8,1%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Linha de base, do fundo</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">4,8%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — caixa alta</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">11,8%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — comprimento</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">37,6%</span>
+          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — margem direita</span>
+            <span style="font-size:14px; font-weight:700; color:#2E2E2C">10,8%</span>
+          </div><hr class="rule">
+          <div style="margin-top:26px; border-left:2px solid #E42313; padding-left:16px">
+            <div class="lbl" style="color:#E42313; margin-bottom:7px">A regra que não se vê</div>
+            <p style="font-size:13px; color:#2E2E2C; line-height:1.6; margin:0">
+              O GATE e o numeral partilham <b>a mesma linha de base</b> — desvio medido
+              de 0,0%. É o que segura a composição em toda a série.</p>
+          </div>
+          <div style="margin-top:22px">
+            <div class="lbl" style="margin-bottom:7px">Sufixo do 3a e do 7a</div>
+            <p style="font-size:12px; color:#4D4C4C; line-height:1.6; margin:0">
+              Um numeral a corpo cheio ocupa 68% da largura e o GATE outros 23%.
+              Não sobra faixa para uma segunda letra ao lado, por isso o sufixo sobe
+              a expoente — como a marca circular faz sobre a palavra do logótipo.
+              A posição deriva da largura do numeral: fixa, encostava à barra do 7.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script data-dc-script data-props='{"gate":{"editor":"enum","default":"3a","options":["2","3","3a","4","5","6","7","7a","8","9"],"section":"Placa"}}'>
+class Component extends DCLogic {
+  renderVals() {
+    const g = String(this.props.gate ?? '3a');
+    return { num: g[0], letra: g.slice(1), temLetra: g.length > 1 };
+  }
+}
+</script></x-dc>
+</body>
+</html>
