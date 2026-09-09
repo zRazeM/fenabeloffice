@@ -37,6 +37,27 @@ propostas/
   porta-gates/          saída: propostas de design das placas de porta
 ```
 
+## Como meter ficheiros aqui
+
+O upload do GitHub pelo browser rebenta com ficheiros grandes
+(**limite de 25 MB por ficheiro**, e lotes grandes dão timeout).
+
+Ordem de preferência:
+
+1. **Poucos de cada vez** — 1 ou 2 fotos por upload, não o lote todo.
+2. **Encolher antes** — telemóvel: partilhar por email/WhatsApp em tamanho
+   "médio" e voltar a guardar; Windows: Paint > Redimensionar 50%;
+   Mac: Pré-visualização > Ferramentas > Ajustar Tamanho.
+3. **Link de partilha** (Drive, Dropbox, WeTransfer) — manda o link no chat
+   que eu descarrego, encolho e arrumo. É o caminho mais rápido para lotes.
+
+Fotos enviadas **no chat** eu consigo ver e analisar, mas **não consigo
+gravar** no repositório — chegam-me como imagem na conversa, não como
+ficheiro. Serve para eu tirar notas, não para arquivar.
+
+As fotos aqui são reduzidas para 3000 px no lado maior (~1 MB cada).
+Chega e sobra para desenho; os originais ficam contigo.
+
 ## Informação em falta (para arrancar)
 
 **Totem**
@@ -46,9 +67,12 @@ propostas/
 - [ ] Fonte(s) do novo estilo gráfico + cores oficiais (RAL / Pantone / HEX)
 - [ ] Confirmar se a lista de destinos e o horário se mantêm iguais
 
-**Portas / Gates**
+**Portas / Gates** — ver análise detalhada em
+`referencias/02-sinaletica-atual/placa-gate-ANALISE.md`
 - [ ] Dimensões exatas da placa original
-- [ ] Quantas placas ao todo e que números (Cais 3 a 9? inclui o 5?)
-- [ ] Substrato: chapa metálica pintada, ACM, vinil sobre porta?
-- [ ] RAL 9010 é o fundo ou a numeração? Qual a cor do contraste?
+- [ ] Quantas placas ao todo e que números (o totem fala em Cais 3 a 9, mas
+      a placa fotografada é a 2 — a série vai de 1 a 9?)
+- [ ] Substrato e processo (ACM? chapa quinada? vinil recortado?)
+- [ ] Cor RAL atual do numeral (aparenta cinza-carvão, não preto)
+- [ ] Confirmar: RAL 9010 é o **fundo** (assumido) e o numeral mantém-se escuro?
 - [ ] Distância de leitura (a partir de onde tem de ser legível)
