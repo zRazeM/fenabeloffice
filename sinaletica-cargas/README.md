@@ -39,24 +39,29 @@ propostas/
 
 ## Como meter ficheiros aqui
 
-O upload do GitHub pelo browser rebenta com ficheiros grandes
-(**limite de 25 MB por ficheiro**, e lotes grandes dão timeout).
+**O upload para o GitHub é o único caminho.** Este ambiente só tem acesso de
+rede ao GitHub — links do Drive, Dropbox ou WeTransfer não funcionam, e eu
+não consigo ir buscar nada a sites externos (nem ao fenabel.pt).
 
-Ordem de preferência:
+Se o upload rebentar, é quase sempre uma destas:
+- **> 25 MB num ficheiro** — é o limite do upload pelo browser
+- **lote grande de uma vez** — dá timeout; manda 1 ou 2 de cada vez
+- **formato HEIC do iPhone** — sobe, mas converte antes para JPG se der erro
 
-1. **Poucos de cada vez** — 1 ou 2 fotos por upload, não o lote todo.
-2. **Encolher antes** — telemóvel: partilhar por email/WhatsApp em tamanho
-   "médio" e voltar a guardar; Windows: Paint > Redimensionar 50%;
-   Mac: Pré-visualização > Ferramentas > Ajustar Tamanho.
-3. **Link de partilha** (Drive, Dropbox, WeTransfer) — manda o link no chat
-   que eu descarrego, encolho e arrumo. É o caminho mais rápido para lotes.
+Para encolher antes de enviar:
+- **Telemóvel** — partilhar por email em tamanho "Médio" e guardar essa cópia
+- **iPhone** — Fotos > Partilhar > Opções > desligar "Todos os dados de fotos"
+- **Windows** — Paint > Redimensionar > 50%
+- **Mac** — Pré-visualização > Ferramentas > Ajustar Tamanho
 
-Fotos enviadas **no chat** eu consigo ver e analisar, mas **não consigo
-gravar** no repositório — chegam-me como imagem na conversa, não como
-ficheiro. Serve para eu tirar notas, não para arquivar.
+Não te preocupes com a pasta certa nem com o nome: **larga em qualquer sítio
+do repositório que eu arrumo, renomeio e encolho.** Manda os originais à
+vontade — eu reduzo para 3000 px no lado maior (~1 MB) depois de os receber.
 
-As fotos aqui são reduzidas para 3000 px no lado maior (~1 MB cada).
-Chega e sobra para desenho; os originais ficam contigo.
+**Fotos coladas no chat**: consigo vê-las e analisá-las, mas **não consigo
+gravá-las** no repositório — chegam como imagem na conversa, não como
+ficheiro. Servem para eu tirar notas (foi o que aconteceu com o
+estacionário), não para arquivar. Se as quiseres cá dentro, têm de subir.
 
 ## Informação em falta (para arrancar)
 
