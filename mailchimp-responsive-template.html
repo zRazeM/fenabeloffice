@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>Email Fenabel Office</title>
+<!--[if mso]>
+<noscript>
+<xml>
+<o:OfficeDocumentSettings>
+<o:PixelsPerInch>96</o:PixelsPerInch>
+</o:OfficeDocumentSettings>
+</xml>
+</noscript>
+<![endif]-->
+<style>
+  /* Reset básico */
+  body, table, td, a { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; }
+  table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+  img { -ms-interpolation-mode: bicubic; border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; }
+  body { margin: 0; padding: 0; width: 100% !important; height: 100% !important; background-color: #f4f4f4; }
+
+  /* Classes de controle mobile/desktop: quem decide o que muda somos nós, via CSS, não o cliente de email */
+  .mobile-only { display: none !important; mso-hide: all; }
+  .desktop-only { display: block !important; }
+
+  /* Só clientes que suportam media query (iOS Mail, Android nativos modernos, Apple Mail) aplicam este bloco */
+  @media only screen and (max-width: 600px) {
+    .email-container { width: 100% !important; }
+
+    /* Empilha colunas lado a lado em blocos verticais */
+    .stack-column {
+      display: block !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      box-sizing: border-box;
+    }
+
+    /* Troca de imagem: banner largo no desktop, recorte quadrado no mobile */
+    .mobile-only { display: block !important; width: 100% !important; }
+    .desktop-only { display: none !important; }
+
+    /* Ajustes de tipografia/espaçamento específicos do mobile */
+    .fluid-padding { padding: 16px !important; }
+    .h1-responsive { font-size: 22px !important; line-height: 28px !important; }
+    .hide-on-mobile { display: none !important; max-height: 0; overflow: hidden; }
+    .cta-button { width: 100% !important; text-align: center !important; }
+  }
+</style>
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f4;">
+
+  <!-- Preheader (texto de preview, invisível no corpo) -->
+  <div style="display:none; max-height:0; overflow:hidden; mso-hide:all;">
+    Confira as novidades da Fenabel Office &nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;&nbsp;&zwnj;
+  </div>
+
+  <center>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4;">
+    <tr>
+      <td align="center" style="padding: 24px 0;">
+
+        <!--[if mso]>
+        <table role="presentation" width="600" align="center" cellpadding="0" cellspacing="0"><tr><td>
+        <![endif]-->
+        <table role="presentation" class="email-container" width="600" cellpadding="0" cellspacing="0" style="width:600px; max-width:600px; background-color:#ffffff;">
+
+          <!-- Imagem: uma versão para desktop, outra recortada para mobile -->
+          <tr>
+            <td>
+              <img src="https://exemplo.com/banner-desktop.jpg" width="600" alt="Fenabel Office" class="desktop-only" style="display:block; width:100%;">
+              <img src="https://exemplo.com/banner-mobile.jpg" width="600" alt="Fenabel Office" class="mobile-only" style="display:none; width:100%;">
+            </td>
+          </tr>
+
+          <!-- Bloco de texto principal -->
+          <tr>
+            <td class="fluid-padding" style="padding: 32px;">
+              <h1 class="h1-responsive" style="margin:0 0 16px; font-family:Arial, sans-serif; font-size:26px; line-height:32px; color:#1a1a1a;">
+                Título do email
+              </h1>
+              <p style="margin:0 0 16px; font-family:Arial, sans-serif; font-size:16px; line-height:24px; color:#444444;">
+                Texto que aparece em qualquer tela.
+              </p>
+
+              <!-- Parágrafo extra que só faz sentido no desktop (mais espaço) -->
+              <p class="hide-on-mobile" style="margin:0 0 16px; font-family:Arial, sans-serif; font-size:14px; line-height:22px; color:#777777;">
+                Detalhe adicional exibido apenas em telas maiores, para não poluir a leitura no celular.
+              </p>
+            </td>
+          </tr>
+
+          <!-- Duas colunas no desktop, empilhadas no mobile -->
+          <tr>
+            <td style="padding: 0 32px 32px;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td class="stack-column" width="50%" valign="top" style="padding-right:12px;">
+                    <p style="margin:0; font-family:Arial, sans-serif; font-size:15px; color:#333333;">Coluna A</p>
+                  </td>
+                  <td class="stack-column" width="50%" valign="top" style="padding-left:12px;">
+                    <p style="margin:0; font-family:Arial, sans-serif; font-size:15px; color:#333333;">Coluna B</p>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Botão que vira full-width no mobile -->
+          <tr>
+            <td align="center" style="padding: 0 32px 32px;">
+              <table role="presentation" cellpadding="0" cellspacing="0" class="cta-button" style="margin:0 auto;">
+                <tr>
+                  <td align="center" bgcolor="#e63946" style="border-radius:4px;">
+                    <a href="https://exemplo.com" target="_blank" style="display:inline-block; padding:14px 28px; font-family:Arial, sans-serif; font-size:16px; color:#ffffff; text-decoration:none;">
+                      Saiba mais
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+        <!--[if mso]>
+        </td></tr></table>
+        <![endif]-->
+
+      </td>
+    </tr>
+  </table>
+  </center>
+
+</body>
+</html>
