@@ -11,7 +11,9 @@ Projeto de redesenho do sistema de sinalética da zona de cargas.
   - Receção / Reception (←)
   - Parque Clientes / Costumer Parking (←)
   - Cargas – Cais 5 / Loading Docks – Gate 5 (→)
-  - Cais 3 a 9 / Gates 3 to 9 (→)
+  - Cais 3 a 9 / Gates 3 to 9 (→) — **a corrigir para 2 a 9**
+  - **NOVO** — porta para transportadoras / tecidos (cais por definir, pedido
+    do CEO). Ver `referencias/02-sinaletica-atual/totem-ANALISE.md`
   - Horário — Segunda a Sexta: 08:00–12:00 / 13:30–17:50
   - Pictogramas: entrada proibida a pessoas não autorizadas · limite de
     velocidade 10 km/h · perigo empilhadores em circulação
@@ -21,6 +23,9 @@ Projeto de redesenho do sistema de sinalética da zona de cargas.
 - **Mesmas dimensões** das placas originais.
 - Nova cor: **RAL 9010** (branco puro).
 - Design pode ser ligeiramente alterado.
+- **Série: 2, 3, 3a, 4, 5, 6, 7, 7a, 8, 9** — 10 placas, sem gate 1.
+  O `3a` e o `7a` obrigam a repensar a composição (hoje é um só carácter a
+  ocupar a placa toda) — ver `referencias/02-sinaletica-atual/placa-gate-ANALISE.md`
 
 ## Estrutura
 
@@ -74,7 +79,9 @@ estacionário), não para arquivar. Se as quiseres cá dentro, têm de subir.
 - [ ] Material e tipo de fixação (chapa sobre estrutura? monobloco? chumbado?)
 - [ ] Ficheiro vetorial do logo Fenabel (`.ai` / `.svg` / `.eps`) — **bloqueio nº 1**
 - [ ] Fonte(s) do novo estilo gráfico + cores oficiais (RAL / Pantone / HEX)
-- [ ] Confirmar se a lista de destinos e o horário se mantêm iguais
+- [ ] **Que cais recebe transportadoras e tecidos** — pergunta em aberto do CEO
+- [ ] Confirmar se o horário se mantém
+- [ ] Corrigir `Costumer Parking` -> `Customer Parking` (erro no totem atual)
 
 **Portas / Gates** — ver análise detalhada em
 `referencias/02-sinaletica-atual/placa-gate-ANALISE.md`
