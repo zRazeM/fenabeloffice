@@ -26,8 +26,15 @@ G_CAP, G_COMP, G_DIR = 118, 376, 892
 AVANCO, CAP_EM, XH_EM = 0.556, 0.717, 0.523
 CORPO = CAP / CAP_EM
 
-def plate_svg(num, letra="", lado=1000, ral=RAL9010, tinta=RAL7016, grelha=False):
-    """A placa como SVG embutido — mesmos numeros do gerador de producao."""
+def plate_svg(num, letra="", lado=1000, ral=RAL9010, tinta=RAL7016, grelha=False,
+              encher=False):
+    """A placa como SVG embutido — mesmos numeros do gerador de producao.
+
+    encher=True faz a placa preencher a largura do contentor. A altura tem de
+    vir do CSS: height="auto" como ATRIBUTO de SVG e invalido e o browser
+    estica a placa ate uma altura absurda (ja aconteceu — 2263px numa moldura
+    de 760).
+    """
     g = ""
     if grelha:
         g = (f'<g stroke="{VERM}" stroke-width="2" stroke-dasharray="7 7" fill="none">'
@@ -37,11 +44,14 @@ def plate_svg(num, letra="", lado=1000, ral=RAL9010, tinta=RAL7016, grelha=False
              f'<line x1="{G_DIR}" y1="0" x2="{G_DIR}" y2="1000"/></g>')
     suf = ""
     if letra:
-        xh = 150; ca = xh / XH_EM
+        xh = 150
         suf = (f'<text x="{MARG_E + AVANCO*CORPO + 14:.0f}" y="{BASE-CAP+xh:.0f}" '
-               f'font-size="{ca:.0f}" font-weight="700" fill="{tinta}">{letra}</text>')
-    return (f'<svg viewBox="0 0 1000 1000" width="{lado}" height="{lado}" '
-            f'style="font-family:{PILHA.replace(chr(34), chr(39))}">'
+               f'font-size="{xh/XH_EM:.0f}" font-weight="700" fill="{tinta}">{letra}</text>')
+    pilha = PILHA.replace(chr(34), chr(39))
+    dim = ('style="display:block;width:100%;height:auto;font-family:' + pilha + '"'
+           if encher else
+           f'width="{lado}" height="{lado}" style="font-family:{pilha}"')
+    return (f'<svg viewBox="0 0 1000 1000" {dim}>'
             f'<rect width="1000" height="1000" fill="{ral}"/>'
             f'<text x="{MARG_E}" y="{BASE}" font-size="{CORPO:.0f}" font-weight="700" '
             f'fill="{tinta}">{num}</text>{suf}'

@@ -165,11 +165,9 @@ escrever("PlacaConstrucao.dc.html", f'''
              style="font-family:{PILHA.replace(chr(34), chr(39))}; flex-shrink:0">
           <rect width="1000" height="1000" fill="{RAL9010}" stroke="{FILETE}"/>
           <text x="{MARG_E}" y="{BASE}" font-size="{CORPO:.0f}" font-weight="700"
-                fill="{RAL7016}">{{{{ num }}}}</text>
-          <sc-if value="{{{{ temLetra }}}}" hint-placeholder-val="{{{{ true }}}}">
-            <text x="{MARG_E + AVANCO*CORPO + 14:.0f}" y="{BASE-CAP+150:.0f}"
-                  font-size="{150/XH_EM:.0f}" font-weight="700" fill="{RAL7016}">{{{{ letra }}}}</text>
-          </sc-if>
+                fill="{RAL7016}">3</text>
+          <text x="{MARG_E + AVANCO*CORPO + 14:.0f}" y="{BASE-CAP+150:.0f}"
+                font-size="{150/XH_EM:.0f}" font-weight="700" fill="{RAL7016}">a</text>
           <g transform="translate({G_DIR},{BASE}) rotate(-90)">
             <text x="0" y="0" font-size="{G_CAP/CAP_EM:.0f}" font-weight="700"
                   letter-spacing="8" fill="none" stroke="{RAL7016}" stroke-width="5">GATE</text>
@@ -218,14 +216,7 @@ escrever("PlacaConstrucao.dc.html", f'''
       </div>
     </div>
   </div>
-</div>''', script='''<script data-dc-script data-props='{"gate":{"editor":"enum","default":"3a","options":["2","3","3a","4","5","6","7","7a","8","9"],"section":"Placa"}}'>
-class Component extends DCLogic {
-  renderVals() {
-    const g = String(this.props.gate ?? '3a');
-    return { num: g[0], letra: g.slice(1), temLetra: g.length > 1 };
-  }
-}
-</script>''')
+</div>''')
 
 # ─────────────────────────────────────────────── série
 escrever("Serie.dc.html", f'''
@@ -243,7 +234,7 @@ escrever("Serie.dc.html", f'''
       <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr));
                   gap:22px; margin-top:30px">
         {"".join(f"""<div style="display:flex; flex-direction:column; gap:8px">
-          <div style="border:1px solid {FILETE}">{plate_svg(g[0], g[1:], lado=196)}</div>
+          <div style="border:1px solid {FILETE}">{plate_svg(g[0], g[1:], encher=True)}</div>
           <span class="lbl" style="{'color:'+VERM if len(g)>1 else ''}">gate {g}</span>
         </div>""" for g in GATES)}
       </div>
