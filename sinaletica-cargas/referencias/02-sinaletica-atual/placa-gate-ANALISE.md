@@ -5,7 +5,7 @@ Fonte: `placa-gate-2-existente.jpg` · detalhe em `placa-gate-2-detalhe.jpg`
 ## O que existe hoje (Gate 2)
 
 **Formato**
-- Painel aproximadamente quadrado, ligeiramente mais alto que largo
+- Painel **quadrado** (confirmado pelo cliente)
 - Montado saliente da parede, com aba/rebordo visível a toda a volta
   (parece painel tipo bandeja — ACM ou chapa quinada)
 - Fixo na chapa perfilada, acima e à direita do vão da porta
@@ -26,6 +26,15 @@ Fonte: `placa-gate-2-existente.jpg` · detalhe em `placa-gate-2-detalhe.jpg`
 - `GATE` está a **contorno (outline), sem preenchimento** — traço fino;
   é o detalhe que dá carácter à placa e vale a pena manter na revisão
 - Margens generosas: o numeral respira, não toca os bordos
+
+## Foto com a placa em branco
+
+Foi enviada no chat uma foto do mesmo vão com **a placa vazia** — mesma
+parede, mesma carrinha, painel sem numeral. Serve de **base limpa para
+montagens**: aplica-se a proposta por cima e vê-se no sítio real.
+
+**Ainda não está no repositório** — foi enviada no chat, que eu não consigo
+gravar. Vale a pena subir, é a melhor base de mockup que há até agora.
 
 ## Notas para o redesign
 
@@ -79,9 +88,12 @@ da placa está em maiúsculas. A decidir junto com o desenho.
 
 ## Por confirmar
 
-- [ ] Dimensão real do painel (largura × altura × profundidade da aba)
+- [x] ~~Proporção~~ — confirmado pelo cliente: **quadrada**. Dimensão exata
+      ainda não é crítica nesta fase.
+- [ ] Dimensão real em mm (para produção) e profundidade da aba
 - [ ] Material e processo (vinil recortado? impressão? pintura?)
-- [ ] Fonte exata usada, se ainda houver a arte-final
+- [x] ~~Fonte~~ — decidida: **Neue Haas Grotesk**
+      (ver `03-identidade-marca/TIPOGRAFIA.md`)
 - [ ] Cor RAL atual do numeral
 - [x] ~~Que gates entram nesta série~~ — confirmado: 2, 3, 3a, 4, 5, 6, 7,
       7a, 8, 9 (10 placas, sem gate 1)
