@@ -1,5 +1,10 @@
 # Identidade Fenabel — leitura do estacionário
 
+> ⚠️ **As cores e o desenho da letra descritos aqui eram estimativas a olho
+> e algumas estavam erradas.** Os SVG já chegaram — os valores confirmados
+> estão em `ESPECIFICACAO-MARCA.md`, que manda. Este ficheiro fica pela
+> leitura da *linguagem gráfica*, que se mantém válida.
+
 Analisado a partir de 3 mockups enviados no chat (envelope DL, cartões de
 visita, papel de carta + bloco). **As imagens não estão no repositório** —
 foram vistas na conversa, não como ficheiro. Isto é a leitura delas.
