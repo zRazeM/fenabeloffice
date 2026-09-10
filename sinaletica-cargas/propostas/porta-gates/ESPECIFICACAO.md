@@ -12,7 +12,7 @@ Ficheiros: `gate-*.svg` · `serie-completa.png` · `montagem-gate-*.jpg`
 ## Posicionamento do descritivo — três hipóteses
 
 O descritivo é novo e não havia sítio óbvio para ele. Foram desenhadas três
-saídas, todas com a palavra mais longa (`Acabamentos`) para julgar o pior caso.
+saídas, todas com a palavra mais longa (`acabamentos`) para julgar o pior caso.
 
 | | O que faz | Veredicto |
 |---|---|---|
@@ -45,7 +45,7 @@ descritivo.
 | Formato | Quadrado |
 | Fundo | **RAL 9010** branco puro |
 | Tinta | **RAL 7016** cinza antracite |
-| Fonte | **Poppins** — Bold 700 no numeral, Medium 500 no descritivo |
+| Fonte | **Poppins** — SemiBold 600 no numeral, Bold 700 no GATE, Medium 500 no descritivo |
 | GATE | sólido, rodado 90°, caixa alta a 7,3%, partilha a linha de base do numeral |
 
 ### Grelha (em % do lado da placa)
@@ -55,6 +55,7 @@ descritivo.
 | Margem esquerda | 8,1% |
 | Filete, do topo | 76,8% |
 | Caixa alta do numeral | 66,0% |
+| Descritivo | sem maiúscula inicial |
 | Linha de base do numeral | 72,2% |
 | GATE — margem direita | 10,8% |
 | Descritivo | até 83,8% de largura |
@@ -71,6 +72,22 @@ Duas razões somam-se:
 
 O corpo é fixado pelo `4`, o mais largo da série, para que nenhuma placa
 transborde. Ver `referencias/03-identidade-marca/TIPOGRAFIA.md`.
+
+### Pesos
+
+O numeral é **SemiBold 600**, não Bold — a esta dimensão o Bold fecha as
+contraformas e a placa ganha peso a mais. O `GATE` fica em **Bold 700**
+porque é pequeno, e mais peso compensa oticamente o corpo reduzido. Trocar é
+uma linha: `PESO_NUM` e `PESO_GATE` em `gerar-placas.py`.
+
+Passar de 700 para 600 **não aumentou o numeral** — ele é limitado pela altura
+disponível, não pela largura, e o 600 só é 2,4% mais estreito.
+
+### Descritivos sem maiúscula inicial
+
+`acabamentos`, não `Acabamentos` — como a marca escreve `fenabel` e
+`the heart of seating`. O gerador força isto ao ler `descritivos.json`, seja
+como for que lá esteja escrito; acrónimos internos ficam intactos.
 
 ### O rótulo GATE
 
@@ -112,7 +129,7 @@ Preencher `descritivos.json` e correr `python3 gerar-placas.py`. Onde estiver
 vazio, sai o marcador `[descritivo]` — nunca uma palavra inventada.
 
 **A palavra mais longa fixa o corpo de todas as placas.** Hoje é
-`Acabamentos`. Se entrar uma maior, todas encolhem — vale a pena fechar a lista
+`acabamentos`. Se entrar uma maior, todas encolhem — vale a pena fechar a lista
 antes de produzir.
 
 ## Por decidir

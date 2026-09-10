@@ -15,7 +15,11 @@ import sys; sys.path.insert(0, '.')
 from metricas import adv, cap, xh, corpo_para_cap, corpo_para_largura
 
 GATES = ["2","3","3a","4","5","6","7","7a","8","9"]
-DESCRITIVO_MAIS_LONGO = "Acabamentos"
+DESCRITIVO_MAIS_LONGO = "acabamentos"
+
+PESO_NUM  = 600   # SemiBold, no numeral e no sufixo
+PESO_GATE = 700   # o rotulo e pequeno: mais peso compensa oticamente
+PESO_DESC = 500   # Medium, no descritivo
 
 L        = 1000
 FUNDO    = "#F1ECE1"   # RAL 9010
@@ -28,7 +32,7 @@ G_CAP    = 118         # caixa alta do GATE, 11.8%
 G_TRACO  = 5
 G_TRACK  = 8
 
-def _t(x, y, corpo, txt, peso=700, cor=TINTA, extra=""):
+def _t(x, y, corpo, txt, peso=PESO_NUM, cor=TINTA, extra=""):
     return (f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONTE}" '
             f'font-weight="{peso}" font-size="{corpo:.0f}" fill="{cor}" {extra}>{txt}</text>')
 
@@ -49,16 +53,16 @@ def _gate_vertical(base, estilo=None):
     if estilo == "nenhum":
         return ""
     if estilo == "solido-claro":
-        c = corpo_para_cap(G_CAP)
+        c = corpo_para_cap(G_CAP, PESO_GATE)
         pinta = f'fill="{TINTA_CLARA}"'
     elif estilo == "solido-pequeno":
-        c = corpo_para_cap(G_CAP * 0.62)
+        c = corpo_para_cap(G_CAP * 0.62, PESO_GATE)
         pinta = f'fill="{TINTA}"'
     else:  # contorno
-        c = corpo_para_cap(G_CAP)
+        c = corpo_para_cap(G_CAP, PESO_GATE)
         pinta = f'fill="none" stroke="{TINTA}" stroke-width="{G_TRACO}"'
     return (f'<g transform="translate({G_DIR},{base}) rotate(-90)">'
-            f'<text font-family="{FONTE}" font-weight="700" font-size="{c:.0f}" '
+            f'<text font-family="{FONTE}" font-weight="{PESO_GATE}" font-size="{c:.0f}" '
             f'letter-spacing="{G_TRACK}" {pinta}>GATE</text></g>')
 
 SUFIXO_REL = 0.17   # altura-x do sufixo, em fracao da caixa alta do numeral
@@ -72,10 +76,10 @@ def _sufixo(num, corpo_num, base_num, topo_num, teto_gate=None):
     com o numeral. Com valor absoluto, ao encolher o numeral o sufixo passou
     de 17% para 23% dele e comecou a competir com o algarismo.
     """
-    altura = SUFIXO_REL * cap() * corpo_num
-    c = altura / xh()
-    x = MARGEM + adv(num) * corpo_num + 18
-    x1 = x + adv("a") * c
+    altura = SUFIXO_REL * cap(PESO_NUM) * corpo_num
+    c = altura / xh(PESO_NUM)
+    x = MARGEM + adv(num, PESO_NUM) * corpo_num + 18
+    x1 = x + adv("a", PESO_NUM) * c
     assert x1 <= L - 40, f"sufixo sai da placa: {x1:.0f}"
     if teto_gate is not None:
         assert topo_num + altura < teto_gate, (
@@ -89,64 +93,64 @@ def layout_A(num, letra, desc, gate=None):
     base   = zona - 46
     # o numeral e limitado pela coluna do GATE, nao pela altura
     largura_util = (G_DIR - G_CAP - 22) - MARGEM
-    corpo = min(corpo_para_cap(zona - 108),
-                corpo_para_largura("4", largura_util))
-    topo  = base - cap() * corpo
-    teto_g = base - (adv("GATE") * corpo_para_cap(G_CAP) + 3*G_TRACK)
+    corpo = min(corpo_para_cap(zona - 108, PESO_NUM),
+                corpo_para_largura("4", largura_util, PESO_NUM))
+    topo  = base - cap(PESO_NUM) * corpo
+    teto_g = base - (adv("GATE", PESO_GATE) * corpo_para_cap(G_CAP, PESO_GATE) + 3*G_TRACK)
     suf = _sufixo(num, corpo, base, topo, teto_g)[0] if letra else ""
-    c_desc = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO, L - 2*MARGEM, 500), 132)
+    c_desc = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO, L - 2*MARGEM, PESO_DESC), 132)
     gate = gate or GATE_ESTILO
     if gate == "rodape":
-        c_k = corpo_para_cap(38)
-        kicker = _t(MARGEM, L - 78 - cap(500)*c_desc - 34, c_k, "GATE",
+        c_k = corpo_para_cap(38, PESO_GATE)
+        kicker = _t(MARGEM, L - 78 - cap(PESO_DESC)*c_desc - 34, c_k, "GATE",
                     cor=TINTA_CLARA, extra='letter-spacing="9"')
         return (_t(MARGEM, base, corpo, num) + suf +
                 f'<line x1="{MARGEM}" y1="{zona}" x2="{L-MARGEM}" y2="{zona}" '
                 f'stroke="{TINTA}" stroke-width="3" opacity=".55"/>' +
-                kicker + _t(MARGEM, L - 78, c_desc, desc, peso=500))
+                kicker + _t(MARGEM, L - 78, c_desc, desc, peso=PESO_DESC))
     return (_t(MARGEM, base, corpo, num) + suf + _gate_vertical(base, gate) +
             f'<line x1="{MARGEM}" y1="{zona}" x2="{L-MARGEM}" y2="{zona}" '
             f'stroke="{TINTA}" stroke-width="3" opacity=".55"/>' +
-            _t(MARGEM, L - 78, c_desc, desc, peso=500))
+            _t(MARGEM, L - 78, c_desc, desc, peso=PESO_DESC))
 
 # ── B · rodape solido, GATE dentro do rodape ─────────────────────────
 def layout_B(num, letra, desc):
     RODAPE = 210
     topo_r = L - RODAPE
     base   = topo_r - 74
-    corpo  = min(corpo_para_cap(topo_r - 130),
-                 corpo_para_largura("4", L - 2*MARGEM))
-    topo   = base - cap() * corpo
+    corpo  = min(corpo_para_cap(topo_r - 130, PESO_NUM),
+                 corpo_para_largura("4", L - 2*MARGEM, PESO_NUM))
+    topo   = base - cap(PESO_NUM) * corpo
     suf = _sufixo(num, corpo, base, topo)[0] if letra else ""
-    c_g  = corpo_para_cap(52)
+    c_g  = corpo_para_cap(52, PESO_GATE)
     c_d  = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO,
-                                  L - 2*MARGEM - adv("GATE")*c_g - 60, 500), 112)
-    y = topo_r + RODAPE/2 + cap(500)*c_d/2
+                                  L - 2*MARGEM - adv("GATE", PESO_GATE)*c_g - 60, PESO_DESC), 112)
+    y = topo_r + RODAPE/2 + cap(PESO_DESC)*c_d/2
     return (_t(MARGEM, base, corpo, num) + suf +
             f'<rect x="0" y="{topo_r}" width="{L}" height="{RODAPE}" fill="{TINTA}"/>' +
             _t(MARGEM, y, c_g, "GATE", cor=FUNDO,
                extra=f'letter-spacing="6" opacity=".75"') +
-            _t(MARGEM + adv("GATE")*c_g + 60, y, c_d, desc, peso=500, cor=FUNDO))
+            _t(MARGEM + adv("GATE", PESO_GATE)*c_g + 60, y, c_d, desc, peso=PESO_DESC, cor=FUNDO))
 
 # ── C · descritivo vertical, na coluna do GATE ───────────────────────
 def layout_C(num, letra, desc):
     base = L - 48
     largura_util = (G_DIR - G_CAP - 22) - MARGEM
-    corpo = min(corpo_para_cap(base - 88),
-                corpo_para_largura("4", largura_util))
-    topo  = base - cap() * corpo
+    corpo = min(corpo_para_cap(base - 88, PESO_NUM),
+                corpo_para_largura("4", largura_util, PESO_NUM))
+    topo  = base - cap(PESO_NUM) * corpo
     suf = _sufixo(num, corpo, base, topo)[0] if letra else ""
-    c_g  = corpo_para_cap(G_CAP)
-    comp_g = adv("GATE") * c_g + 3*G_TRACK
+    c_g  = corpo_para_cap(G_CAP, PESO_GATE)
+    comp_g = adv("GATE", PESO_GATE) * c_g + 3*G_TRACK
     # o descritivo vertical tem de comecar abaixo do sufixo, senao passa
     # por cima dele nas placas com letra (3a, 7a)
     teto = (topo + 150 + 40) if letra else 60
     espaco = (base - comp_g - 46) - teto
-    c_d  = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO, espaco, 500), 104)
+    c_d  = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO, espaco, PESO_DESC), 104)
     return (_t(MARGEM, base, corpo, num) + suf + _gate_vertical(base) +
             f'<g transform="translate({G_DIR - G_CAP*0.32:.0f},'
             f'{base - comp_g - 46:.0f}) rotate(-90)">' +
-            _t(0, 0, c_d, desc, peso=500) + '</g>')
+            _t(0, 0, c_d, desc, peso=PESO_DESC) + '</g>')
 
 LAYOUTS = {"A": layout_A, "B": layout_B, "C": layout_C}
 
@@ -161,7 +165,10 @@ def descritivos():
     """Le descritivos.json. Por preencher -> marcador visivel, nunca inventado."""
     import json, pathlib
     d = json.loads(pathlib.Path("descritivos.json").read_text())
-    return {g: (d.get(g) or "[descritivo]") for g in GATES}
+    def semCaixaAlta(s):
+        """Tira so a maiuscula inicial — acronimos internos ficam intactos."""
+        return s[:1].lower() + s[1:] if s else s
+    return {g: semCaixaAlta(d.get(g) or "") or "[descritivo]" for g in GATES}
 
 
 if __name__ == "__main__":

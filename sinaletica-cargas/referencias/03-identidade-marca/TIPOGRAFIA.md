@@ -16,9 +16,17 @@ problema que a Neue Haas Grotesk trazia, que obrigava a licenciar quem desenha.
 
 | Peso | Onde |
 |---|---|
-| **Bold 700** | numeral do gate, destinos do totem |
+| **SemiBold 600** | numeral do gate e o seu sufixo |
+| **Bold 700** | rótulo GATE, destinos do totem |
 | **Medium 500** | descritivo do gate, destaques |
 | **Regular 400** | traduções inglesas, horário, avisos |
+
+O numeral é **SemiBold**, não Bold: a esta dimensão o Bold fecha demasiado as
+contraformas e a placa ganha peso a mais. O rótulo `GATE` fica em Bold porque
+é pequeno — mais peso compensa oticamente o corpo reduzido.
+
+Os descritivos escrevem-se **sem maiúscula inicial** (`acabamentos`), como a
+marca faz em `fenabel` e `the heart of seating`. Acrónimos internos mantêm-se.
 
 ## Dois cuidados
 
@@ -51,12 +59,15 @@ a leitura à distância, o descritivo é de perto.
 Estão lidas do ficheiro da fonte, não estimadas — ver
 `propostas/porta-gates/metricas.py`.
 
-| | Poppins Bold |
-|---|---|
-| Caixa alta | 0,705 em |
-| Altura-x | 0,558 em |
-| `GATE` | 2,631 em |
-| `Acabamentos` (Medium) | 7,180 em |
+| | SemiBold 600 | Bold 700 |
+|---|---|---|
+| Caixa alta | 0,701 em | 0,705 em |
+| Altura-x | 0,554 em | 0,558 em |
+| `4` (o mais largo) | 0,661 em | 0,677 em |
+| `7` (o mais estreito) | 0,548 em | 0,535 em |
+| `GATE` | 2,593 em | 2,631 em |
+
+`acabamentos` em Medium 500: **7,161 em**.
 
 ## Ficheiros
 

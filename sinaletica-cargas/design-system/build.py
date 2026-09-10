@@ -134,8 +134,8 @@ escrever("Tipografia.dc.html", f'''
 
       <div style="margin-top:24px">
         <hr class="rule">
-        {amostraTipo("Bold 700","Numeral do gate","3a","72px")}
-        {amostraTipo("Medium 500","Descritivo do gate","Acabamentos","30px",500)}
+        {amostraTipo("SemiBold 600","Numeral do gate","3a","72px",600)}
+        {amostraTipo("Medium 500","Descritivo do gate","acabamentos","30px",500)}
         {amostraTipo("Bold 700","Destino do totem","Cargas — Cais 5","28px")}
         {amostraTipo("Regular 400","Tradução inglesa","Loading — Gate 5","20px",400)}
         {amostraTipo("Regular 400","Horário e avisos","Segunda a Sexta · 08:00–12:00 · 13:30–17:50","14px",400)}
@@ -169,7 +169,7 @@ escrever("PlacaConstrucao.dc.html", f'''
       <div style="display:flex; gap:40px; margin-top:34px; align-items:flex-start">
         <svg viewBox="-96 -56 1250 1180" width="600" height="566" style="flex-shrink:0">
           <rect width="1000" height="1000" fill="{RAL9010}" stroke="{FILETE}"/>
-          {plate_svg("3","a","Acabamentos").split(">",1)[1].rsplit("</svg>",1)[0]}
+          {plate_svg("3","a","acabamentos").split(">",1)[1].rsplit("</svg>",1)[0]}
           <g stroke="{VERM}" stroke-width="2" stroke-dasharray="8 8" fill="none" opacity=".85">
             <line x1="81" y1="-36" x2="81" y2="1040"/>
             <line x1="-64" y1="{BASE_N}" x2="1064" y2="{BASE_N}"/>
@@ -194,7 +194,7 @@ escrever("PlacaConstrucao.dc.html", f'''
             <span style="font-size:14px; font-weight:600; color:{TINTA}">{b}</span>
           </div><hr class="rule">""" for a,b in [
             ("Margem esquerda","8,1%"),("Filete, do topo","76,8%"),
-            ("Caixa alta do numeral","66,0%"),("Linha de base do numeral","72,2%"),
+            ("Caixa alta do numeral — SemiBold 600","66,0%"),("Linha de base do numeral","72,2%"),
             ("GATE — caixa alta","7,3%"),("GATE — margem direita","10,8%"),
             ("Descritivo — Medium 500","até 83,8%")])}
 
@@ -218,7 +218,7 @@ escrever("PlacaConstrucao.dc.html", f'''
               O sufixo do 3a e do 7a mantém-se em expoente, posicionado a partir
               da largura real do numeral — que na Poppins muda de gate para gate.
               O corpo do descritivo é fixado pela palavra mais longa da série,
-              hoje <b>Acabamentos</b>, para que todas as placas fiquem iguais.</p>
+              hoje <b>acabamentos</b>, para que todas as placas fiquem iguais.</p>
           </div>
         </div>
       </div>
