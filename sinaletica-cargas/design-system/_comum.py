@@ -17,8 +17,9 @@ PAPEL, TINTA, CINZA = "#F7F6F3", "#2E2E2C", "#4D4C4C"
 MUDO, FILETE, VERM  = "#8A8781", "#DAD7D0", "#E42313"
 RAL9010, RAL7016    = "#F1ECE1", "#383E42"
 
-PILHA = ('"Neue Haas Grotesk Display Pro","Neue Haas Grotesk Text Pro",'
-         '"Helvetica Neue",Helvetica,Arial,sans-serif')
+PILHA = 'Poppins,"Century Gothic",Futura,system-ui,sans-serif'
+GFONTS = ('<link rel="stylesheet" href="https://fonts.googleapis.com/css2'
+          '?family=Poppins:wght@400;500;600;700&display=swap">')
 
 # geometria medida na placa original, em milesimos do lado
 CAP, MARG_E, BASE = 883, 81, 952
@@ -26,39 +27,25 @@ G_CAP, G_COMP, G_DIR = 118, 376, 892
 AVANCO, CAP_EM, XH_EM = 0.556, 0.717, 0.523
 CORPO = CAP / CAP_EM
 
-def plate_svg(num, letra="", lado=1000, ral=RAL9010, tinta=RAL7016, grelha=False,
-              encher=False):
-    """A placa como SVG embutido — mesmos numeros do gerador de producao.
+import sys as _sys, pathlib as _pl
+_sys.path.insert(0, str(_pl.Path(__file__).parent / '..' / 'propostas' / 'porta-gates'))
+import importlib.util as _iu
+_spec = _iu.spec_from_file_location(
+    "gerador", _pl.Path(__file__).parent / '..' / 'propostas' / 'porta-gates' / 'gerar-placas.py')
+_ger = _iu.module_from_spec(_spec); _spec.loader.exec_module(_ger)
 
-    encher=True faz a placa preencher a largura do contentor. A altura tem de
-    vir do CSS: height="auto" como ATRIBUTO de SVG e invalido e o browser
-    estica a placa ate uma altura absurda (ja aconteceu — 2263px numa moldura
-    de 760).
+def plate_svg(num, letra="", desc="[descritivo]", lado=1000, encher=False, layout="A"):
+    """A placa, vinda do gerador de producao — uma so fonte de verdade.
+
+    encher=True: a altura tem de vir do CSS. height="auto" como ATRIBUTO de
+    SVG e invalido e o browser estica a placa (ja aconteceu: 2263px numa
+    moldura de 760).
     """
-    g = ""
-    if grelha:
-        g = (f'<g stroke="{VERM}" stroke-width="2" stroke-dasharray="7 7" fill="none">'
-             f'<line x1="{MARG_E}" y1="0" x2="{MARG_E}" y2="1000"/>'
-             f'<line x1="0" y1="{BASE}" x2="1000" y2="{BASE}"/>'
-             f'<line x1="0" y1="{BASE-CAP}" x2="1000" y2="{BASE-CAP}"/>'
-             f'<line x1="{G_DIR}" y1="0" x2="{G_DIR}" y2="1000"/></g>')
-    suf = ""
-    if letra:
-        xh = 150
-        suf = (f'<text x="{MARG_E + AVANCO*CORPO + 14:.0f}" y="{BASE-CAP+xh:.0f}" '
-               f'font-size="{xh/XH_EM:.0f}" font-weight="700" fill="{tinta}">{letra}</text>')
-    pilha = PILHA.replace(chr(34), chr(39))
-    dim = ('style="display:block;width:100%;height:auto;font-family:' + pilha + '"'
-           if encher else
-           f'width="{lado}" height="{lado}" style="font-family:{pilha}"')
+    corpo = _ger.LAYOUTS[layout](num, letra, desc)
+    dim = ('style="display:block;width:100%;height:auto"' if encher
+           else f'width="{lado}" height="{lado}"')
     return (f'<svg viewBox="0 0 1000 1000" {dim}>'
-            f'<rect width="1000" height="1000" fill="{ral}"/>'
-            f'<text x="{MARG_E}" y="{BASE}" font-size="{CORPO:.0f}" font-weight="700" '
-            f'fill="{tinta}">{num}</text>{suf}'
-            f'<g transform="translate({G_DIR},{BASE}) rotate(-90)">'
-            f'<text x="0" y="0" font-size="{G_CAP/CAP_EM:.0f}" font-weight="700" '
-            f'letter-spacing="8" fill="none" stroke="{tinta}" stroke-width="5">GATE</text></g>'
-            f'{g}</svg>')
+            f'<rect width="1000" height="1000" fill="{_ger.FUNDO}"/>{corpo}</svg>')
 
 CABECA = '''<!doctype html>
 <html>
@@ -69,6 +56,7 @@ CABECA = '''<!doctype html>
 <body>
 <x-dc>
 <helmet>
+  {gfonts}
   <style>
     body {{ margin:0; background:{papel}; color:{cinza};
       font-family:{pilha}; -webkit-font-smoothing:antialiased; }}
@@ -86,7 +74,7 @@ CABECA = '''<!doctype html>
       color:{mudo}; }}
   </style>
 </helmet>
-'''.format(papel=PAPEL, cinza=CINZA, pilha=PILHA, verm=VERM,
+'''.format(gfonts=GFONTS, papel=PAPEL, cinza=CINZA, pilha=PILHA, verm=VERM,
            mudo=MUDO, tinta=TINTA, filete=FILETE)
 
 RABO = "</x-dc>\n</body>\n</html>\n"

@@ -2,6 +2,9 @@ import sys; sys.path.insert(0, '.')
 from _comum import *
 
 GATES = ["2","3","3a","4","5","6","7","7a","8","9"]
+import json, pathlib as _p
+_d = json.loads((_p.Path("../propostas/porta-gates/descritivos.json")).read_text())
+DESC = {g: (_d.get(g) or "[descritivo]") for g in GATES}
 
 # ─────────────────────────────────────────────── capa
 escrever("Main.dc.html", f'''
@@ -27,8 +30,8 @@ escrever("Main.dc.html", f'''
           <span style="font-size:12px; color:{MUDO}">{d}</span></div><hr class="rule">"""
         for i,(t,d) in enumerate([
           ("Cor","RAL, contraste e limites de uso"),
-          ("Tipografia","Neue Haas Grotesk · Display e Text"),
-          ("Placa de gate — construção","Grelha medida no original"),
+          ("Tipografia","Poppins · pesos e limites"),
+          ("Placa de gate — construção","Grelha, descritivo e sufixo"),
           ("Série de gates","10 placas: 2 a 9, com 3a e 7a"),
           ("Totem de entrada","Estrutura em lamelas"),
         ], start=1))}
@@ -85,15 +88,13 @@ escrever("Cor.dc.html", f'''
 </div>''')
 
 # ─────────────────────────────────────────────── tipografia
-def amostraTipo(corte, corpo, peso, uso, texto, tam):
-    return f'''<div style="display:flex; flex-direction:column; gap:9px; padding:22px 0">
+def amostraTipo(peso, uso, texto, tam, w=700):
+    return f'''<div style="display:flex; flex-direction:column; gap:9px; padding:20px 0">
       <div style="display:flex; gap:14px; align-items:baseline">
-        <span class="lbl" style="color:{VERM}">{corte}</span>
-        <span style="font-size:11px; color:{MUDO}">{corpo} · {peso}</span>
+        <span class="lbl" style="color:{VERM}">Poppins {peso}</span>
         <span style="font-size:11px; color:{MUDO}; margin-left:auto">{uso}</span>
       </div>
-      <div style="font-size:{tam}; font-weight:{'700' if 'Bold' in peso else '400'};
-        color:{TINTA}; line-height:1.1; letter-spacing:{'-.02em' if tam.endswith('px') and int(tam[:-2])>40 else '0'}">{texto}</div>
+      <div style="font-size:{tam}; font-weight:{w}; color:{TINTA}; line-height:1.12">{texto}</div>
     </div><hr class="rule">'''
 
 escrever("Tipografia.dc.html", f'''
@@ -101,116 +102,116 @@ escrever("Tipografia.dc.html", f'''
   <div style="display:flex; gap:36px; flex-grow:1">
     <div class="rot">Tipografia</div>
     <div style="flex-grow:1; display:flex; flex-direction:column">
-      <h1 class="tit">Neue Haas Grotesk</h1>
-      <p class="sub" style="max-width:48ch; line-height:1.6">
-        O numeral da placa antiga já era Helvetica. A Neue Haas Grotesk é a revisão
-        do desenho original — não é mudar de voz, é repô-la afinada.</p>
+      <h1 class="tit">Poppins</h1>
+      <p class="sub" style="max-width:50ch; line-height:1.6">
+        Geométrica e monolinear — a mesma família de desenho do logótipo, que
+        também é geométrico e de traço constante. Encaixa melhor na marca do que
+        uma grotesca encaixaria.</p>
 
-      <div style="display:flex; gap:20px; margin-top:34px">
-        <div style="flex-grow:1; border:1px solid {FILETE}; padding:20px">
-          <div class="lbl" style="margin-bottom:9px">Display</div>
+      <div style="display:flex; gap:20px; margin-top:32px">
+        <div style="flex-grow:1; border:1px solid {FILETE}; padding:18px">
+          <div class="lbl" style="margin-bottom:8px; color:{VERM}">Vantagem</div>
           <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
-            Espacejamento apertado, remates afinados. <b style="color:{TINTA}">Acima de 24 pt.</b>
-            Numeral do gate, títulos do totem.</p>
+            Licença aberta (OFL). Sem custo e sem restrição de uso — ao contrário
+            de uma fonte comercial, que obrigaria a licenciar quem desenha.</p>
         </div>
-        <div style="flex-grow:1; border:1px solid {FILETE}; padding:20px">
-          <div class="lbl" style="margin-bottom:9px">Text</div>
+        <div style="flex-grow:1; border:1px solid {FILETE}; padding:18px">
+          <div class="lbl" style="margin-bottom:8px">Cuidado</div>
           <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
-            Mais aberta e robusta. <b style="color:{TINTA}">Abaixo de 24 pt.</b>
-            Destinos, horário, avisos.</p>
+            Formas circulares dão silhuetas de palavra menos distintas à
+            distância. O numeral faz o trabalho longe; o descritivo é de perto.</p>
         </div>
       </div>
 
-      <div style="margin-top:30px">
+      <div style="margin-top:26px; border-left:2px solid {VERM}; padding-left:15px">
+        <div class="lbl" style="color:{VERM}; margin-bottom:6px">Algarismos não são tabulares</div>
+        <p style="font-size:12px; color:{TINTA}; line-height:1.6; margin:0">
+          Na Poppins a largura varia <b>27%</b> entre o 7 (0,535 em) e o 4
+          (0,677 em). Uma margem esquerda fixa deixa de dar placas visualmente
+          iguais — o corpo do numeral é fixado pelo <b>4</b>, o mais largo, para
+          que nenhuma placa transborde.</p>
+      </div>
+
+      <div style="margin-top:24px">
         <hr class="rule">
-        {amostraTipo("Display","Bold","Bold","Numeral do gate","3a","76px")}
-        {amostraTipo("Display","Bold","Bold","Destino principal","Cargas — Cais 5","34px")}
-        {amostraTipo("Text","Medium","Medium","Destino, português","Parque Clientes","22px")}
-        {amostraTipo("Text","Roman","Roman","Tradução inglesa","Customer Parking","22px")}
-        {amostraTipo("Text","Roman","Roman","Horário e avisos","Segunda a Sexta · 08:00–12:00 · 13:30–17:50","15px")}
-      </div>
-
-      <div style="margin-top:auto; padding-top:22px; display:flex; gap:26px">
-        <div style="flex-grow:1">
-          <div class="lbl" style="margin-bottom:8px; color:{VERM}">Licença</div>
-          <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
-            Fonte comercial da Monotype. Quem <b>desenha</b> precisa de licença desktop;
-            o produtor não, porque a arte-final vai vetorizada.</p>
-        </div>
-        <div style="flex-grow:1">
-          <div class="lbl" style="margin-bottom:8px">Nesta folha</div>
-          <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
-            Se a Neue Haas Grotesk não estiver instalada, isto está a ser
-            desenhado em Helvetica — metricamente equivalente, desenho menos fino.</p>
-        </div>
+        {amostraTipo("Bold 700","Numeral do gate","3a","72px")}
+        {amostraTipo("Medium 500","Descritivo do gate","Acabamentos","30px",500)}
+        {amostraTipo("Bold 700","Destino do totem","Cargas — Cais 5","28px")}
+        {amostraTipo("Regular 400","Tradução inglesa","Loading — Gate 5","20px",400)}
+        {amostraTipo("Regular 400","Horário e avisos","Segunda a Sexta · 08:00–12:00 · 13:30–17:50","14px",400)}
       </div>
     </div>
   </div>
 </div>''')
 
 # ─────────────────────────────────────────────── construção da placa
-cota = f'stroke="{VERM}" stroke-width="2"'
+import sys as _s; _s.path.insert(0, '../propostas/porta-gates')
+from metricas import cap as _cap, corpo_para_cap as _cpc, corpo_para_largura as _cpl, adv as _adv
+
+RODAPE = 232
+ZONA   = 1000 - RODAPE
+BASE_N = ZONA - 46
+UTIL   = (892 - 118 - 22) - 81
+CORPO_N = min(_cpc(ZONA - 108), _cpl("4", UTIL))
+CAP_N  = _cap() * CORPO_N
+TOPO_N = BASE_N - CAP_N
+
 escrever("PlacaConstrucao.dc.html", f'''
 <div class="folha">
   <div style="display:flex; gap:36px; flex-grow:1">
     <div class="rot">Placa de gate · construção</div>
     <div style="flex-grow:1; display:flex; flex-direction:column">
       <h1 class="tit">Construção da placa</h1>
-      <p class="sub" style="max-width:52ch; line-height:1.6">
-        A fotografia da placa existente foi retificada e medida a pixel. Estas
-        proporções são as do original — o desenho novo herda-as.</p>
+      <p class="sub" style="max-width:56ch; line-height:1.6">
+        O descritivo entra num rodapé sob filete. O numeral perde altura para o
+        acomodar — e perde mais ainda por a Poppins ser larga.</p>
 
-      <div style="display:flex; gap:40px; margin-top:38px; align-items:flex-start">
-        <svg viewBox="-90 -60 1240 1180" width="620" height="590"
-             style="font-family:{PILHA.replace(chr(34), chr(39))}; flex-shrink:0">
+      <div style="display:flex; gap:40px; margin-top:34px; align-items:flex-start">
+        <svg viewBox="-96 -56 1250 1180" width="600" height="566" style="flex-shrink:0">
           <rect width="1000" height="1000" fill="{RAL9010}" stroke="{FILETE}"/>
-          <text x="{MARG_E}" y="{BASE}" font-size="{CORPO:.0f}" font-weight="700"
-                fill="{RAL7016}">3</text>
-          <text x="{MARG_E + AVANCO*CORPO + 14:.0f}" y="{BASE-CAP+150:.0f}"
-                font-size="{150/XH_EM:.0f}" font-weight="700" fill="{RAL7016}">a</text>
-          <g transform="translate({G_DIR},{BASE}) rotate(-90)">
-            <text x="0" y="0" font-size="{G_CAP/CAP_EM:.0f}" font-weight="700"
-                  letter-spacing="8" fill="none" stroke="{RAL7016}" stroke-width="5">GATE</text>
+          {plate_svg("3","a","Acabamentos").split(">",1)[1].rsplit("</svg>",1)[0]}
+          <g stroke="{VERM}" stroke-width="2" stroke-dasharray="8 8" fill="none" opacity=".85">
+            <line x1="81" y1="-36" x2="81" y2="1040"/>
+            <line x1="-64" y1="{BASE_N}" x2="1064" y2="{BASE_N}"/>
+            <line x1="-64" y1="{TOPO_N}" x2="1064" y2="{TOPO_N}"/>
+            <line x1="892" y1="-36" x2="892" y2="{ZONA}"/>
           </g>
-          <g {cota} fill="none" stroke-dasharray="8 8" opacity=".85">
-            <line x1="{MARG_E}" y1="-40" x2="{MARG_E}" y2="1040"/>
-            <line x1="-60" y1="{BASE}" x2="1060" y2="{BASE}"/>
-            <line x1="-60" y1="{BASE-CAP}" x2="1060" y2="{BASE-CAP}"/>
-            <line x1="{G_DIR}" y1="-40" x2="{G_DIR}" y2="1040"/>
-          </g>
-          <g fill="{VERM}" font-size="30" font-weight="700">
-            <text x="0" y="-24">8,1%</text>
-            <text x="1010" y="{BASE+10}">4,8%</text>
-            <text x="1010" y="{BASE-CAP+10}">6,9%</text>
-            <text x="{G_DIR-96}" y="1058">10,8%</text>
-            <text x="{MARG_E+16}" y="{BASE-CAP/2}" opacity=".9">88,3%</text>
+          <g fill="{VERM}" font-size="30" font-weight="600" font-family="Poppins">
+            <text x="0" y="-20">8,1%</text>
+            <text x="1012" y="{BASE_N+10:.0f}">72,2%</text>
+            <text x="1012" y="{TOPO_N+10:.0f}">6,2%</text>
+            <text x="97" y="{ZONA-16}">filete · 76,8%</text>
+            <text x="97" y="{TOPO_N + CAP_N/2:.0f}" opacity=".9">66,0%</text>
+            <text x="700" y="1056">10,8%</text>
           </g>
         </svg>
 
         <div style="flex-grow:1; display:flex; flex-direction:column">
-          <div class="lbl" style="margin-bottom:12px">Medido no original</div>
+          <div class="lbl" style="margin-bottom:12px">Grelha</div>
           <hr class="rule">
-          {"".join(f"""<div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+          {"".join(f"""<div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
             <span style="flex-grow:1; font-size:13px; color:{CINZA}">{a}</span>
-            <span style="font-size:14px; font-weight:700; color:{TINTA}">{b}</span>
+            <span style="font-size:14px; font-weight:600; color:{TINTA}">{b}</span>
           </div><hr class="rule">""" for a,b in [
-            ("Altura do numeral","88,3%"),("Largura do numeral","63,8%"),
-            ("Margem esquerda","8,1%"),("Linha de base, do fundo","4,8%"),
-            ("GATE — caixa alta","11,8%"),("GATE — comprimento","37,6%"),
-            ("GATE — margem direita","10,8%")])}
-          <div style="margin-top:26px; border-left:2px solid {VERM}; padding-left:16px">
-            <div class="lbl" style="color:{VERM}; margin-bottom:7px">A regra que não se vê</div>
-            <p style="font-size:13px; color:{TINTA}; line-height:1.6; margin:0">
-              O GATE e o numeral partilham <b>a mesma linha de base</b> — desvio medido
-              de 0,0%. É o que segura a composição em toda a série.</p>
+            ("Margem esquerda","8,1%"),("Filete, do topo","76,8%"),
+            ("Caixa alta do numeral","66,0%"),("Linha de base do numeral","72,2%"),
+            ("GATE — margem direita","10,8%"),("Descritivo — Medium 500","até 83,8%")])}
+
+          <div style="margin-top:22px; border-left:2px solid {VERM}; padding-left:15px">
+            <div class="lbl" style="color:{VERM}; margin-bottom:6px">Porque caiu de 88% para 66%</div>
+            <p style="font-size:12px; color:{TINTA}; line-height:1.6; margin:0">
+              Duas razões somam-se. O rodapé do descritivo tira 23% da altura.
+              E a Poppins é larga: à altura antiga, o <b>4</b> ocuparia 85% da
+              largura da placa contra 68% da Helvetica. O corpo é fixado pelo
+              4 — o mais largo — para que nenhuma placa transborde.</p>
           </div>
-          <div style="margin-top:22px">
-            <div class="lbl" style="margin-bottom:7px">Sufixo do 3a e do 7a</div>
+          <div style="margin-top:18px">
+            <div class="lbl" style="margin-bottom:6px">Sufixo e descritivo</div>
             <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
-              Um numeral a corpo cheio ocupa 68% da largura e o GATE outros 23%.
-              Não sobra faixa para uma segunda letra ao lado, por isso o sufixo sobe
-              a expoente — como a marca circular faz sobre a palavra do logótipo.
-              A posição deriva da largura do numeral: fixa, encostava à barra do 7.</p>
+              O sufixo do 3a e do 7a mantém-se em expoente, posicionado a partir
+              da largura real do numeral — que na Poppins muda de gate para gate.
+              O corpo do descritivo é fixado pela palavra mais longa da série,
+              hoje <b>Acabamentos</b>, para que todas as placas fiquem iguais.</p>
           </div>
         </div>
       </div>
@@ -227,14 +228,14 @@ escrever("Serie.dc.html", f'''
       <div style="display:flex; justify-content:space-between; align-items:flex-end">
         <div>
           <h1 class="tit" style="font-size:31px">Dez placas</h1>
-          <p class="sub" style="margin-top:7px">Sem gate 1. O 3a e o 7a levam sufixo em expoente.</p>
+          <p class="sub" style="margin-top:7px">Descritivos por preencher em <code>descritivos.json</code>. Sem gate 1.</p>
         </div>
         <div class="lbl">Fundo RAL 9010 · Numeral RAL 7016</div>
       </div>
       <div style="display:grid; grid-template-columns:repeat(5, minmax(0, 1fr));
                   gap:22px; margin-top:30px">
         {"".join(f"""<div style="display:flex; flex-direction:column; gap:8px">
-          <div style="border:1px solid {FILETE}">{plate_svg(g[0], g[1:], encher=True)}</div>
+          <div style="border:1px solid {FILETE}">{plate_svg(g[0], g[1:], DESC.get(g, "[descritivo]"), encher=True)}</div>
           <span class="lbl" style="{'color:'+VERM if len(g)>1 else ''}">gate {g}</span>
         </div>""" for g in GATES)}
       </div>

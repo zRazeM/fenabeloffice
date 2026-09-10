@@ -1,58 +1,78 @@
 # Tipografia da sinalética
 
-## Decisão: Neue Haas Grotesk
+## Decisão: Poppins
 
-Escolha do cliente. E é a escolha certa por uma razão concreta:
+> Substitui a decisão anterior (Neue Haas Grotesk). O histórico dessa análise
+> está no fim, porque explica o que se ganhou e o que se perdeu.
 
-O numeral da placa atual **já parece Helvetica** — o `2` tem o remate
-horizontal reto na base e o arranque diagonal no topo, que é a assinatura do
-desenho da Haas. A Neue Haas Grotesk é a revisão da Haas Grotesk original
-feita por Christian Schwartz, ou seja: não é mudar de fonte, é **repor o
-desenho original numa versão melhor desenhada**. A placa nova vai parecer a
-mesma família da antiga, só que mais afinada.
+Geométrica, monolinear, formas circulares. **É a mesma família de desenho do
+logótipo** — o `fenabel` também é geométrico e de traço constante. Encaixa na
+marca melhor do que uma grotesca encaixaria.
 
-## Display ou Text — não é a mesma fonte
+**Licença aberta (OFL).** Sem custo e sem restrição de uso — resolve o
+problema que a Neue Haas Grotesk trazia, que obrigava a licenciar quem desenha.
 
-A Neue Haas Grotesk vem em duas óticas, e usar a errada estraga o trabalho:
+## Pesos
 
-| Corte | Para quê | Onde entra aqui |
-|---|---|---|
-| **NHG Display** | corpos grandes · espacejamento apertado, remates afinados | **numeral do gate**, títulos do totem |
-| **NHG Text** | corpos pequenos · mais aberta, espacejada, robusta | linhas de destino, horário, avisos do totem |
+| Peso | Onde |
+|---|---|
+| **Bold 700** | numeral do gate, destinos do totem |
+| **Medium 500** | descritivo do gate, destaques |
+| **Regular 400** | traduções inglesas, horário, avisos |
 
-Regra prática: acima de ~24 pt usa-se Display; abaixo, Text.
-Num totem lido a 2–3 metros e numa placa lida a 30, isto nota-se.
+## Dois cuidados
 
-## Pesos sugeridos
+### 1. Os algarismos não são tabulares
 
-- **Numeral do gate** — Display **Bold** (aproxima do peso da placa atual)
-- **`GATE` vertical** — Text Medium ou Bold, a contorno como hoje
-- **Destinos do totem (PT)** — Text Medium
-- **Traduções (EN)** — Text Roman, mesmo corpo, em cinza mais claro
-- **Horário e avisos** — Text Roman
+Na Poppins a largura varia **27%** entre o `7` (0,535 em) e o `4` (0,677 em).
+Uma margem esquerda fixa deixa de produzir placas visualmente iguais.
 
-## Duas coisas a resolver antes de produzir
+**Como está resolvido:** o corpo do numeral é fixado pelo `4`, o mais largo,
+para que nenhuma placa transborde. As restantes ficam com mais folga à
+direita — variação subtil, aceitável.
 
-### 1. Licença
-A Neue Haas Grotesk é **fonte comercial** (Monotype). Para sinalética é
-preciso **licença desktop** em quem desenha. Não é caro, mas tem de existir.
+### 2. É larga, e isso custa altura
 
-> Se não houver licença: os cortes vetorizam-se na arte-final e o produtor
-> não precisa da fonte. Mas quem **desenha** precisa dela legalmente.
-> Alternativas próximas e livres, se for mesmo bloqueio: **TeX Gyre Heros**
-> ou **Nimbus Sans** (ambas clones métricos da Helvetica).
+À altura que o original tinha (88,3% da placa), o `4` em Poppins ocuparia
+**85%** da largura contra **68%** da Helvetica. Somado ao rodapé do descritivo,
+o numeral desce para **66%** da altura da placa.
 
-### 2. Convive com o logótipo, não o imita
-O logótipo `fenabel` **não** é Neue Haas Grotesk — é uma geométrica
-arredondada monolinear, de peso leve. Isto é bom: a marca fica com voz
-própria e a sinalética fala uma linguagem funcional, neutra. Mas é uma
-decisão a assumir de propósito, não por acidente.
+Não há como evitar numa placa quadrada com descritivo. Se se quiser o numeral
+maior, a saída é dar mais largura à placa.
 
-- [ ] Confirmar que se aceita esse contraste, ou se a sinalética deve
-      aproximar-se do desenho do logótipo
+### 3. Silhuetas de palavra menos distintas
 
-## Continua por saber
+As formas circulares da Poppins tornam as palavras menos reconhecíveis ao
+longe do que uma grotesca. Sem consequência prática aqui: o numeral é que faz
+a leitura à distância, o descritivo é de perto.
 
-- [ ] Que fonte é a do logótipo (no SVG está vetorizada)
-- [ ] Que fonte é a técnica do estacionário — a dos `[+351]` e dos números
-      de largura fixa. Não tem de ser a mesma da sinalética, mas convém saber.
+## Medidas usadas
+
+Estão lidas do ficheiro da fonte, não estimadas — ver
+`propostas/porta-gates/metricas.py`.
+
+| | Poppins Bold |
+|---|---|
+| Caixa alta | 0,705 em |
+| Altura-x | 0,558 em |
+| `GATE` | 2,631 em |
+| `Acabamentos` (Medium) | 7,180 em |
+
+## Ficheiros
+
+`fontes/Poppins-{400,500,600,700}.ttf`, obtidos do Google Fonts.
+
+---
+
+## Histórico — porque não é Neue Haas Grotesk
+
+A escolha anterior tinha uma boa razão: o numeral da placa antiga já era
+Helvetica, e a NHG é a revisão do desenho original — seria repor a mesma voz
+afinada.
+
+**O que se perde com a mudança:** a continuidade direta com as placas antigas,
+e a distinção Display/Text que resolvia bem corpos grandes e pequenos com o
+mesmo desenho.
+
+**O que se ganha:** coerência com o logótipo, que é geométrico e não grotesco,
+e o fim do problema de licenciamento.

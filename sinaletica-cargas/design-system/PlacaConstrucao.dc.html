@@ -7,9 +7,10 @@
 <body>
 <x-dc>
 <helmet>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
   <style>
     body { margin:0; background:#F7F6F3; color:#4D4C4C;
-      font-family:"Neue Haas Grotesk Display Pro","Neue Haas Grotesk Text Pro","Helvetica Neue",Helvetica,Arial,sans-serif; -webkit-font-smoothing:antialiased; }
+      font-family:Poppins,"Century Gothic",Futura,system-ui,sans-serif; -webkit-font-smoothing:antialiased; }
     a { color:#E42313; } a:hover { color:#b31b0f; }
     .folha { padding:64px 64px 56px; box-sizing:border-box; height:100%;
       display:flex; flex-direction:column; }
@@ -30,75 +31,68 @@
     <div class="rot">Placa de gate · construção</div>
     <div style="flex-grow:1; display:flex; flex-direction:column">
       <h1 class="tit">Construção da placa</h1>
-      <p class="sub" style="max-width:52ch; line-height:1.6">
-        A fotografia da placa existente foi retificada e medida a pixel. Estas
-        proporções são as do original — o desenho novo herda-as.</p>
+      <p class="sub" style="max-width:56ch; line-height:1.6">
+        O descritivo entra num rodapé sob filete. O numeral perde altura para o
+        acomodar — e perde mais ainda por a Poppins ser larga.</p>
 
-      <div style="display:flex; gap:40px; margin-top:38px; align-items:flex-start">
-        <svg viewBox="-90 -60 1240 1180" width="620" height="590"
-             style="font-family:'Neue Haas Grotesk Display Pro','Neue Haas Grotesk Text Pro','Helvetica Neue',Helvetica,Arial,sans-serif; flex-shrink:0">
+      <div style="display:flex; gap:40px; margin-top:34px; align-items:flex-start">
+        <svg viewBox="-96 -56 1250 1180" width="600" height="566" style="flex-shrink:0">
           <rect width="1000" height="1000" fill="#F1ECE1" stroke="#DAD7D0"/>
-          <text x="81" y="952" font-size="1232" font-weight="700"
-                fill="#383E42">3</text>
-          <text x="780" y="219"
-                font-size="287" font-weight="700" fill="#383E42">a</text>
-          <g transform="translate(892,952) rotate(-90)">
-            <text x="0" y="0" font-size="165" font-weight="700"
-                  letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text>
+          <rect width="1000" height="1000" fill="#F1ECE1"/><text x="81" y="722" font-family="Poppins" font-weight="700" font-size="936" fill="#383E42" >3</text><text x="665" y="174" font-family="Poppins" font-weight="700" font-size="201" fill="#383E42" >a</text><g transform="translate(892,722) rotate(-90)"><text font-family="Poppins" font-weight="700" font-size="167" letter-spacing="8" fill="none" stroke="#383E42" stroke-width="5">GATE</text></g><line x1="81" y1="768" x2="919" y2="768" stroke="#383E42" stroke-width="3" opacity=".55"/><text x="81" y="922" font-family="Poppins" font-weight="500" font-size="117" fill="#383E42" >Acabamentos</text>
+          <g stroke="#E42313" stroke-width="2" stroke-dasharray="8 8" fill="none" opacity=".85">
+            <line x1="81" y1="-36" x2="81" y2="1040"/>
+            <line x1="-64" y1="722" x2="1064" y2="722"/>
+            <line x1="-64" y1="62.0" x2="1064" y2="62.0"/>
+            <line x1="892" y1="-36" x2="892" y2="768"/>
           </g>
-          <g stroke="#E42313" stroke-width="2" fill="none" stroke-dasharray="8 8" opacity=".85">
-            <line x1="81" y1="-40" x2="81" y2="1040"/>
-            <line x1="-60" y1="952" x2="1060" y2="952"/>
-            <line x1="-60" y1="69" x2="1060" y2="69"/>
-            <line x1="892" y1="-40" x2="892" y2="1040"/>
-          </g>
-          <g fill="#E42313" font-size="30" font-weight="700">
-            <text x="0" y="-24">8,1%</text>
-            <text x="1010" y="962">4,8%</text>
-            <text x="1010" y="79">6,9%</text>
-            <text x="796" y="1058">10,8%</text>
-            <text x="97" y="510.5" opacity=".9">88,3%</text>
+          <g fill="#E42313" font-size="30" font-weight="600" font-family="Poppins">
+            <text x="0" y="-20">8,1%</text>
+            <text x="1012" y="732">72,2%</text>
+            <text x="1012" y="72">6,2%</text>
+            <text x="97" y="752">filete · 76,8%</text>
+            <text x="97" y="392" opacity=".9">66,0%</text>
+            <text x="700" y="1056">10,8%</text>
           </g>
         </svg>
 
         <div style="flex-grow:1; display:flex; flex-direction:column">
-          <div class="lbl" style="margin-bottom:12px">Medido no original</div>
+          <div class="lbl" style="margin-bottom:12px">Grelha</div>
           <hr class="rule">
-          <div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
-            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Altura do numeral</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">88,3%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
-            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Largura do numeral</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">63,8%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+          <div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
             <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Margem esquerda</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">8,1%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
-            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Linha de base, do fundo</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">4,8%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
-            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — caixa alta</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">11,8%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
-            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — comprimento</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">37,6%</span>
-          </div><hr class="rule"><div style="display:flex; padding:11px 0; gap:14px; align-items:baseline">
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">8,1%</span>
+          </div><hr class="rule"><div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Filete, do topo</span>
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">76,8%</span>
+          </div><hr class="rule"><div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Caixa alta do numeral</span>
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">66,0%</span>
+          </div><hr class="rule"><div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Linha de base do numeral</span>
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">72,2%</span>
+          </div><hr class="rule"><div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
             <span style="flex-grow:1; font-size:13px; color:#4D4C4C">GATE — margem direita</span>
-            <span style="font-size:14px; font-weight:700; color:#2E2E2C">10,8%</span>
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">10,8%</span>
+          </div><hr class="rule"><div style="display:flex; padding:10px 0; gap:14px; align-items:baseline">
+            <span style="flex-grow:1; font-size:13px; color:#4D4C4C">Descritivo — Medium 500</span>
+            <span style="font-size:14px; font-weight:600; color:#2E2E2C">até 83,8%</span>
           </div><hr class="rule">
-          <div style="margin-top:26px; border-left:2px solid #E42313; padding-left:16px">
-            <div class="lbl" style="color:#E42313; margin-bottom:7px">A regra que não se vê</div>
-            <p style="font-size:13px; color:#2E2E2C; line-height:1.6; margin:0">
-              O GATE e o numeral partilham <b>a mesma linha de base</b> — desvio medido
-              de 0,0%. É o que segura a composição em toda a série.</p>
+
+          <div style="margin-top:22px; border-left:2px solid #E42313; padding-left:15px">
+            <div class="lbl" style="color:#E42313; margin-bottom:6px">Porque caiu de 88% para 66%</div>
+            <p style="font-size:12px; color:#2E2E2C; line-height:1.6; margin:0">
+              Duas razões somam-se. O rodapé do descritivo tira 23% da altura.
+              E a Poppins é larga: à altura antiga, o <b>4</b> ocuparia 85% da
+              largura da placa contra 68% da Helvetica. O corpo é fixado pelo
+              4 — o mais largo — para que nenhuma placa transborde.</p>
           </div>
-          <div style="margin-top:22px">
-            <div class="lbl" style="margin-bottom:7px">Sufixo do 3a e do 7a</div>
+          <div style="margin-top:18px">
+            <div class="lbl" style="margin-bottom:6px">Sufixo e descritivo</div>
             <p style="font-size:12px; color:#4D4C4C; line-height:1.6; margin:0">
-              Um numeral a corpo cheio ocupa 68% da largura e o GATE outros 23%.
-              Não sobra faixa para uma segunda letra ao lado, por isso o sufixo sobe
-              a expoente — como a marca circular faz sobre a palavra do logótipo.
-              A posição deriva da largura do numeral: fixa, encostava à barra do 7.</p>
+              O sufixo do 3a e do 7a mantém-se em expoente, posicionado a partir
+              da largura real do numeral — que na Poppins muda de gate para gate.
+              O corpo do descritivo é fixado pela palavra mais longa da série,
+              hoje <b>Acabamentos</b>, para que todas as placas fiquem iguais.</p>
           </div>
         </div>
       </div>

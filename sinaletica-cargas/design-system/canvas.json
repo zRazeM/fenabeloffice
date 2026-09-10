@@ -3,7 +3,7 @@
     { "file": "Main.dc.html",            "x": 0,    "y": 0,    "w": 900,  "h": 800 },
     { "file": "Cor.dc.html",             "x": 1000, "y": 0,    "w": 900,  "h": 925 },
     { "file": "Tipografia.dc.html",      "x": 2000, "y": 0,    "w": 900,  "h": 1060 },
-    { "file": "PlacaConstrucao.dc.html", "x": 0,    "y": 1200, "w": 1240, "h": 910 },
+    { "file": "PlacaConstrucao.dc.html", "x": 0,    "y": 1200, "w": 1240, "h": 862 },
     { "file": "Serie.dc.html",           "x": 1340, "y": 1200, "w": 1400, "h": 760 },
     { "file": "Totem.dc.html",           "x": 2840, "y": 1200, "w": 760,  "h": 1010 }
   ],

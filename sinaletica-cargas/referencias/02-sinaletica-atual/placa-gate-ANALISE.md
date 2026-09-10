@@ -92,7 +92,7 @@ da placa está em maiúsculas. A decidir junto com o desenho.
       ainda não é crítica nesta fase.
 - [ ] Dimensão real em mm (para produção) e profundidade da aba
 - [ ] Material e processo (vinil recortado? impressão? pintura?)
-- [x] ~~Fonte~~ — decidida: **Neue Haas Grotesk**
+- [x] ~~Fonte~~ — decidida: **Poppins** (substituiu a Neue Haas Grotesk)
       (ver `03-identidade-marca/TIPOGRAFIA.md`)
 - [ ] Cor RAL atual do numeral
 - [x] ~~Que gates entram nesta série~~ — confirmado: 2, 3, 3a, 4, 5, 6, 7,
