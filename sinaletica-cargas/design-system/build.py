@@ -195,7 +195,8 @@ escrever("PlacaConstrucao.dc.html", f'''
           </div><hr class="rule">""" for a,b in [
             ("Margem esquerda","8,1%"),("Filete, do topo","76,8%"),
             ("Caixa alta do numeral","66,0%"),("Linha de base do numeral","72,2%"),
-            ("GATE — margem direita","10,8%"),("Descritivo — Medium 500","até 83,8%")])}
+            ("GATE — caixa alta","7,3%"),("GATE — margem direita","10,8%"),
+            ("Descritivo — Medium 500","até 83,8%")])}
 
           <div style="margin-top:22px; border-left:2px solid {VERM}; padding-left:15px">
             <div class="lbl" style="color:{VERM}; margin-bottom:6px">Porque caiu de 88% para 66%</div>
@@ -206,6 +207,12 @@ escrever("PlacaConstrucao.dc.html", f'''
               4 — o mais largo — para que nenhuma placa transborde.</p>
           </div>
           <div style="margin-top:18px">
+            <div class="lbl" style="margin-bottom:6px">O rótulo GATE</div>
+            <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0 0 14px">
+              Deixou de ser a contorno. O contorno funcionava na Helvetica; a
+              Poppins é monolinear e contorná-la deixa duas linhas finas com um
+              vazio no meio — o <b>G</b> circular perde a forma. Passou a sólido
+              e mais pequeno: subordinado pelo tamanho, não por um truque de traço.</p>
             <div class="lbl" style="margin-bottom:6px">Sufixo e descritivo</div>
             <p style="font-size:12px; color:{CINZA}; line-height:1.6; margin:0">
               O sufixo do 3a e do 7a mantém-se em expoente, posicionado a partir

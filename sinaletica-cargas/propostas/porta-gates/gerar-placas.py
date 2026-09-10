@@ -32,12 +32,34 @@ def _t(x, y, corpo, txt, peso=700, cor=TINTA, extra=""):
     return (f'<text x="{x:.0f}" y="{y:.0f}" font-family="{FONTE}" '
             f'font-weight="{peso}" font-size="{corpo:.0f}" fill="{cor}" {extra}>{txt}</text>')
 
-def _gate_vertical(base, corpo=None):
-    c = corpo or corpo_para_cap(G_CAP)
+TINTA_CLARA = "#9AA0A4"   # RAL 7016 aclarado, para papel subordinado
+
+# Tratamento do rotulo GATE. Uma linha para mudar toda a serie.
+# "solido-pequeno" | "solido-claro" | "rodape" | "nenhum" | "contorno"
+GATE_ESTILO = "solido-pequeno"
+
+def _gate_vertical(base, estilo=None):
+    """Tratamentos do rotulo GATE.
+
+    O contorno herdado da placa antiga funcionava na Helvetica. Na Poppins,
+    que e monolinear, contornar deixa duas linhas finas paralelas com um vazio
+    grande no meio e as letras perdem a forma — sobretudo o G circular.
+    """
+    estilo = estilo or GATE_ESTILO
+    if estilo == "nenhum":
+        return ""
+    if estilo == "solido-claro":
+        c = corpo_para_cap(G_CAP)
+        pinta = f'fill="{TINTA_CLARA}"'
+    elif estilo == "solido-pequeno":
+        c = corpo_para_cap(G_CAP * 0.62)
+        pinta = f'fill="{TINTA}"'
+    else:  # contorno
+        c = corpo_para_cap(G_CAP)
+        pinta = f'fill="none" stroke="{TINTA}" stroke-width="{G_TRACO}"'
     return (f'<g transform="translate({G_DIR},{base}) rotate(-90)">'
             f'<text font-family="{FONTE}" font-weight="700" font-size="{c:.0f}" '
-            f'letter-spacing="{G_TRACK}" fill="none" stroke="{TINTA}" '
-            f'stroke-width="{G_TRACO}">GATE</text></g>')
+            f'letter-spacing="{G_TRACK}" {pinta}>GATE</text></g>')
 
 SUFIXO_REL = 0.17   # altura-x do sufixo, em fracao da caixa alta do numeral
 
@@ -61,7 +83,7 @@ def _sufixo(num, corpo_num, base_num, topo_num, teto_gate=None):
     return _t(x, topo_num + altura, c, "a"), x1
 
 # ── A · rodape com filete ────────────────────────────────────────────
-def layout_A(num, letra, desc):
+def layout_A(num, letra, desc, gate=None):
     RODAPE = 232                      # altura da banda inferior
     zona   = L - RODAPE               # zona do numeral
     base   = zona - 46
@@ -73,7 +95,16 @@ def layout_A(num, letra, desc):
     teto_g = base - (adv("GATE") * corpo_para_cap(G_CAP) + 3*G_TRACK)
     suf = _sufixo(num, corpo, base, topo, teto_g)[0] if letra else ""
     c_desc = min(corpo_para_largura(DESCRITIVO_MAIS_LONGO, L - 2*MARGEM, 500), 132)
-    return (_t(MARGEM, base, corpo, num) + suf + _gate_vertical(base) +
+    gate = gate or GATE_ESTILO
+    if gate == "rodape":
+        c_k = corpo_para_cap(38)
+        kicker = _t(MARGEM, L - 78 - cap(500)*c_desc - 34, c_k, "GATE",
+                    cor=TINTA_CLARA, extra='letter-spacing="9"')
+        return (_t(MARGEM, base, corpo, num) + suf +
+                f'<line x1="{MARGEM}" y1="{zona}" x2="{L-MARGEM}" y2="{zona}" '
+                f'stroke="{TINTA}" stroke-width="3" opacity=".55"/>' +
+                kicker + _t(MARGEM, L - 78, c_desc, desc, peso=500))
+    return (_t(MARGEM, base, corpo, num) + suf + _gate_vertical(base, gate) +
             f'<line x1="{MARGEM}" y1="{zona}" x2="{L-MARGEM}" y2="{zona}" '
             f'stroke="{TINTA}" stroke-width="3" opacity=".55"/>' +
             _t(MARGEM, L - 78, c_desc, desc, peso=500))

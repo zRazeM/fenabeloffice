@@ -46,7 +46,7 @@ descritivo.
 | Fundo | **RAL 9010** branco puro |
 | Tinta | **RAL 7016** cinza antracite |
 | Fonte | **Poppins** — Bold 700 no numeral, Medium 500 no descritivo |
-| GATE | a contorno, rodado 90°, partilha a linha de base do numeral |
+| GATE | sólido, rodado 90°, caixa alta a 7,3%, partilha a linha de base do numeral |
 
 ### Grelha (em % do lado da placa)
 
@@ -71,6 +71,25 @@ Duas razões somam-se:
 
 O corpo é fixado pelo `4`, o mais largo da série, para que nenhuma placa
 transborde. Ver `referencias/03-identidade-marca/TIPOGRAFIA.md`.
+
+### O rótulo GATE
+
+Era a contorno na placa antiga. **Deixou de ser** — o contorno funcionava na
+Helvetica, mas a Poppins é monolinear: contorná-la deixa duas linhas finas
+paralelas com um vazio grande no meio e as letras perdem a forma, sobretudo
+o `G` circular.
+
+Passou a **sólido e mais pequeno** (caixa alta a 7,3% contra 11,8%). Fica
+subordinado pelo tamanho em vez de por um truque de traço, e mantém a rotação
+de 90° que é o gesto da marca.
+
+Foram desenhados cinco tratamentos — ver `opcoes-gate.png`. Trocar é uma linha
+em `gerar-placas.py`: `GATE_ESTILO`, que aceita `solido-pequeno`,
+`solido-claro`, `rodape`, `nenhum` ou `contorno`.
+
+> **O GATE não é decorativo.** É a palavra inglesa da placa, para
+> transportadores estrangeiros. Por isso "sem GATE", apesar de ser a versão
+> mais limpa, custa alguma coisa.
 
 ### Sufixo do `3a` e do `7a`
 
@@ -100,6 +119,7 @@ antes de produzir.
 
 - [ ] Os 10 descritivos
 - [ ] Variante **A** ou **B**
+- [ ] Tratamento do GATE — proposto `solido-pequeno`
 - [ ] `3a` ou `3A`?
 - [ ] Dimensão real em mm
 - [ ] Material e processo
